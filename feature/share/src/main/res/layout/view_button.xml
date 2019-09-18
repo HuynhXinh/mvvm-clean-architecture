@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.AppCompatTextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tvButton"
+    style="@style/Button"
+    tools:background="@drawable/bg_button_green_corner"
+    tools:text="@string/txt_sign_up" />

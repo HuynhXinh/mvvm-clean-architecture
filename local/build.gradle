@@ -1,0 +1,15 @@
+apply from: '../android-library.gradle'
+
+
+dependencies {
+    implementation deps.reactive.rxjava
+
+    implementation deps.kotlin.stdlib
+    implementation deps.kotlin.ktx
+
+    implementation deps.network.gson
+
+    implementation deps.timberkt
+
+    implementation deps.koin.core
+}

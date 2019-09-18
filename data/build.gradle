@@ -1,0 +1,18 @@
+apply from: '../android-library.gradle'
+
+dependencies {
+    implementation project(':domain')
+    implementation project(':remote')
+    implementation project(':local')
+    implementation project(':google')
+    implementation project(':facebook')
+
+    implementation project(':scopeinjection')
+
+    implementation deps.reactive.rxjava
+
+    implementation deps.kotlin.stdlib
+    implementation deps.kotlin.ktx
+
+    implementation deps.koin.core
+}

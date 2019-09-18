@@ -1,0 +1,29 @@
+include ':app',
+        ':data',
+        ':domain',
+        ':remote',
+        ':local',
+        ':presentation',
+        ':scopeinjection',
+
+        ':share',
+        ':authentication',
+        ':splash',
+        ':account',
+
+        ':google',
+        ':facebook',
+
+        ':location'
+
+project(':share').projectDir = new File('feature/share')
+project(':authentication').projectDir = new File('feature/authentication')
+project(':splash').projectDir = new File('feature/splash')
+project(':account').projectDir = new File('feature/account')
+
+project(':google').projectDir = new File('social/google')
+project(':facebook').projectDir = new File('social/facebook')
+
+project(':location').projectDir = new File('device/location')
+
+rootProject.name = 'Travel'

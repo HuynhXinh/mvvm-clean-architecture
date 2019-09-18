@@ -1,0 +1,31 @@
+apply from: '../android-library.gradle'
+
+dependencies {
+    api project(':domain')
+    implementation project(':scopeinjection')
+
+    // Lifecycle
+    api deps.lifecycle.extensions
+    api deps.lifecycle.java8
+    kapt deps.lifecycle.compiler
+
+    // RxJava & RxAndroid
+    implementation deps.reactive.rxjava
+    implementation deps.reactive.rx_android
+    implementation deps.reactive.rxRelay
+
+    implementation deps.kotlin.stdlib
+    implementation deps.kotlin.ktx
+
+    // Koin
+    implementation deps.koin.core
+    implementation deps.koin.scope
+    implementation deps.koin.android
+    implementation deps.koin.viewmodel
+
+    implementation deps.timberkt
+
+    testImplementation deps.kotlin.koin_test
+    testImplementation deps.arch_core.testing
+    testImplementation 'com.nhaarman:mockito-kotlin:1.5.0'
+}

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="onSignInSignUpClickListener"
+            type="android.view.View.OnClickListener" />
+
+        <variable
+            name="onTryExploreClickListener"
+            type="android.view.View.OnClickListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".SplashActivity">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/bg_splash" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvExplore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_25dp"
+            android:layout_marginTop="@dimen/margin_45dp"
+            android:alpha="0"
+            android:fontFamily="@font/roboto_slab_bold"
+            android:text="@string/txt_explore"
+            android:textColor="@color/secondary1"
+            android:textSize="@dimen/text_size_24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:alpha="1" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvExploreDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0"
+            android:fontFamily="@font/roboto_slab_light"
+            android:text="@string/txt_new_amazing_countries"
+            android:textColor="@color/secondary1"
+            android:textSize="@dimen/text_size_20sp"
+            app:layout_constraintStart_toStartOf="@id/tvExplore"
+            app:layout_constraintTop_toBottomOf="@id/tvExplore"
+            tools:alpha="1" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideLine"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvSignInSignUp"
+            style="@style/Button.Green"
+            android:layout_margin="@dimen/margin_16dp"
+            android:alpha="0"
+            android:onClick="@{onSignInSignUpClickListener}"
+            android:text="@string/txt_sign_in_sign_up"
+            app:layout_constraintBottom_toTopOf="@id/guideLine"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:alpha="1" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTrial"
+            style="@style/Button.Gray"
+            android:layout_margin="@dimen/margin_16dp"
+            android:alpha="0"
+            android:onClick="@{onTryExploreClickListener}"
+            android:text="@string/txt_try_explore"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/guideLine"
+            tools:alpha="1" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

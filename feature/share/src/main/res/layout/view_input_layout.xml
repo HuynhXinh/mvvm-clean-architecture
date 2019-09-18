@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="title"
+            type="String" />
+
+        <variable
+            name="isShowTitle"
+            type="Boolean" />
+
+        <variable
+            name="errorMsg"
+            type="String" />
+
+        <variable
+            name="isShowError"
+            type="Boolean" />
+    </data>
+
+    <merge
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".widget.inputlayout.view.BaseInputLayout"
+        tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:fontFamily="@font/roboto_slab_regular"
+                android:maxLines="1"
+                android:text="@{title}"
+                android:textColor="@color/secondary1"
+                android:textSize="@dimen/text_size_14sp"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:visibleGone="@{isShowTitle}"
+                tools:text="Title input Title dfds fds "
+                tools:visibility="visible" />
+
+            <LinearLayout
+                android:id="@+id/llWarningHolder"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_16dp"
+                android:gravity="end"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tvTitle"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:background="@color/gray"
+                tools:layout_height="20dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clInput"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/all_size_48dp"
+            android:background="@drawable/bg_white_border_gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/clTitle">
+
+            <LinearLayout
+                android:id="@+id/llStartViewHolder"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/all_size_48dp"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:background="@color/gray"
+                tools:layout_width="@dimen/all_size_48dp" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etInput"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:fontFamily="@font/roboto_slab_regular"
+                android:singleLine="true"
+                android:textColor="@color/secondary1"
+                android:textColorHint="@color/secondary2"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/llEndViewHolder"
+                app:layout_constraintStart_toEndOf="@id/llStartViewHolder"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:hint="Hint inputHint inputHint inputHint inputHint input"
+                tools:layout_marginEnd="@dimen/margin_8dp"
+                tools:layout_marginStart="@dimen/margin_8dp" />
+
+            <LinearLayout
+                android:id="@+id/llEndViewHolder"
+                android:layout_width="@dimen/all_size_48dp"
+                android:layout_height="@dimen/all_size_48dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:background="@color/gray"
+                tools:layout_width="90dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvErrorDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_slab_regular"
+            android:paddingTop="3dp"
+            android:text="@{errorMsg}"
+            android:textColor="@color/red"
+            android:textSize="@dimen/text_size_12sp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/clInput"
+            app:visibleGone="@{isShowError}"
+            tools:text="Error description Error description Error description Error description Error description"
+            tools:visibility="visible" />
+
+    </merge>
+
+</layout>

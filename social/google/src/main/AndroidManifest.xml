@@ -1,0 +1,12 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.xinh.google">
+
+    <application android:supportsRtl="true">
+        <activity
+            android:name=".GoogleLoginActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Transparent" />
+    </application>
+
+</manifest>
+

@@ -1,0 +1,25 @@
+apply from: '../../android-library.gradle'
+
+android {
+
+    defaultConfig {
+        resValue "string", "facebook_app_id", rootProject.FACEBOOK_APP_ID
+        resValue "string", "fb_login_protocol_scheme", rootProject.FB_LOGIN_PROTOCOL_SCHEME
+    }
+
+}
+
+dependencies {
+    implementation deps.facebook.login
+
+    implementation deps.reactive.rxjava
+
+    implementation deps.kotlin.stdlib
+    implementation deps.kotlin.ktx
+
+    implementation deps.network.gson
+
+    implementation deps.timberkt
+
+    implementation deps.koin.core
+}

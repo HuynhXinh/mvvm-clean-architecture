@@ -1,0 +1,52 @@
+apply from: '../../android-library.gradle'
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    api project(':presentation')
+
+    api project(':scopeinjection')
+
+    //Support
+    api deps.support.annotations
+    api deps.support.app_compat
+    api deps.support.recyclerview
+    api deps.support.cardview
+    api deps.support.design
+    api deps.support.v4
+    api deps.support.core_utils
+    api deps.support.constraint_layout
+
+    // Lifecycle
+    api deps.lifecycle.extensions
+    api deps.lifecycle.java8
+    kapt deps.lifecycle.compiler
+
+    // Navigation
+    api deps.navigation.fragment_ktx
+    api deps.navigation.ui_ktx
+
+    // Glide
+    api(deps.glide.runtime) {
+        exclude group: "com.android.support"
+    }
+    kapt deps.glide.compiler
+
+    // RxJava & RxAndroid
+    api deps.reactive.rxjava
+    api deps.reactive.rx_android
+    api deps.reactive.rxRelay
+
+    api deps.kotlin.stdlib
+    api deps.kotlin.ktx
+
+    // Koin
+    api deps.koin.core
+    api deps.koin.scope
+    api deps.koin.android
+    api deps.koin.viewmodel
+
+    api deps.shimmer
+
+    api deps.timberkt
+}

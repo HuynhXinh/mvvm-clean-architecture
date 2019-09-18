@@ -1,0 +1,10 @@
+<resources>
+    <string name="txt_sign_in">Sign In</string>
+    <string name="txt_sign_up">Sign Up</string>
+    <string name="msg_required">Required</string>
+    <string name="txt_wrong_format">Wrong format</string>
+    <string name="msg_email_incorrect">Email wrong format</string>
+    <string name="msg_password_incorrect">Password incorrect</string>
+    <string name="hint_your_password">Your password</string>
+    <string name="hint_your_email">Your email</string>
+</resources>

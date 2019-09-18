@@ -1,0 +1,29 @@
+apply from: '../../android-library.gradle'
+
+android {
+
+    defaultConfig {
+        buildConfigField "String", "GOOGLE_SIGN_IN_CLIENT_ID", rootProject.GOOGLE_SIGN_IN_CLIENT_ID
+
+        versionCode 69
+        versionName "Google 69"
+    }
+
+}
+
+dependencies {
+    implementation deps.google.auth
+    implementation deps.firebase.auth
+    implementation deps.firebase.core
+
+    implementation deps.reactive.rxjava
+
+    implementation deps.kotlin.stdlib
+    implementation deps.kotlin.ktx
+
+    implementation deps.network.gson
+
+    implementation deps.timberkt
+
+    implementation deps.koin.core
+}
