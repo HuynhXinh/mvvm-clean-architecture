@@ -29,17 +29,12 @@ class LocationRepositoryImpl(
         return checkSettingsLocation(context, locationRequest).toObservable()
             .flatMap {
                 if (it) {
-                    startDetectCurrentLocationAndSaveLocation()
+                    startDetectCurrentLocation()
                 } else {
                     throw LocationSettingsNotSatisfiedException()
                 }
             }
     }
-
-    private fun startDetectCurrentLocationAndSaveLocation(): Observable<MyLocation> {
-        return startDetectCurrentLocation()
-    }
-
 
     private fun startDetectCurrentLocation(): Observable<MyLocation> {
         return Observable.mergeDelayError(getLocationFromLocationManager(), getFusedLocation())

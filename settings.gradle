@@ -14,7 +14,10 @@ include ':app',
         ':google',
         ':facebook',
 
-        ':location'
+        ':location',
+        ':permission',
+
+        ':workermanager'
 
 project(':share').projectDir = new File('feature/share')
 project(':authentication').projectDir = new File('feature/authentication')
@@ -25,5 +28,6 @@ project(':google').projectDir = new File('social/google')
 project(':facebook').projectDir = new File('social/facebook')
 
 project(':location').projectDir = new File('device/location')
+project(':permission').projectDir = new File('device/permission')
 
 rootProject.name = 'Travel'

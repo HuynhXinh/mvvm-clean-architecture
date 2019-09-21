@@ -1,12 +1,12 @@
 apply from: '../android-library.gradle'
 
 dependencies {
-    api project(':domain')
+    implementation project(':domain')
     implementation project(':scopeinjection')
 
     // Lifecycle
-    api deps.lifecycle.extensions
-    api deps.lifecycle.java8
+    implementation deps.lifecycle.extensions
+    implementation deps.lifecycle.java8
     kapt deps.lifecycle.compiler
 
     // RxJava & RxAndroid

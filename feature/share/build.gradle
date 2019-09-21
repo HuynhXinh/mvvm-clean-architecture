@@ -4,6 +4,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     api project(':presentation')
+    api project(':domain')
 
     api project(':scopeinjection')
 

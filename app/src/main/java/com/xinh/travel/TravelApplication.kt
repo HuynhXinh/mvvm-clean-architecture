@@ -7,6 +7,7 @@ import com.xinh.presentation.di.presentationModule
 import com.xinh.remote.di.remoteModule
 import com.xinh.share.BaseApplication
 import com.xinh.travel.di.*
+import com.xinh.workermanager.di.workerManagerModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -35,7 +36,8 @@ class TravelApplication : BaseApplication() {
             localModule,
             networkModule,
             presentationModule,
-            locationModule
+            locationModule,
+            workerManagerModule
         )
     }
 }
