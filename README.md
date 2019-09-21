@@ -1,4 +1,5 @@
 
+
 ## MVVM with clean architecture approach  
 An Android project with MVVM pattern adapts which newest Android libraries: [Data binding](https://developer.android.com/topic/libraries/data-binding/), [Lifecycle-Aware](https://developer.android.com/topic/libraries/architecture/lifecycle), [LiveData](https://developer.android.com/topic/libraries/data-binding/), [LiveData](https://developer.android.com/topic/libraries/architecture/livedata), [Navigation](https://developer.android.com/guide/navigation/), [Paging](https://developer.android.com/topic/libraries/architecture/paging/), [Room](https://developer.android.com/topic/libraries/architecture/room), [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel), [WorkManager](https://developer.android.com/topic/libraries/architecture/workmanager).   
 And some another: [Koin](https://insert-koin.io/) + [Scope](https://insert-koin.io/docs/2.0/getting-started/android-scope/) use for dependency injection, handle synchronization by [RxJava 2](https://github.com/ReactiveX/RxJava) + [RxAndroid](https://github.com/ReactiveX/RxAndroid),  communication with api via [Retrofit](https://github.com/square/retrofit).
@@ -22,7 +23,7 @@ Need to create secret-keys.gradle file (contain key of Google sign and Facebook)
 *If you don't want to run login function just comment out.*
 
 ## Appreciate
-Many appreciate for any comments, contributors, report issue
+Many appreciate for any comments, contributions, report issues
 And any star or fort are most motivation for me to update more new features
 
 ## Screenshot
@@ -34,9 +35,9 @@ And any star or fort are most motivation for me to update more new features
 
 ## License
 
-	The MIT License (MIT)
+    The MIT License (MIT)
 
-	Copyright (c) 2019 Huynh Xinh
+    Copyright (c) 2019 Huynh Xinh
 
     Permission is hereby granted, free of charge, to any person obtaining a copy  
     of this software and associated documentation files (the "Software"), to deal  
