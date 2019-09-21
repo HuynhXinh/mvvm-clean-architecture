@@ -29,7 +29,7 @@ And any star or fort are most motivation for me to update more new features
 ![Login](/screenshot/login.png)
 
 <div align="center">
-    <img src="/screenshots/login.jpg" width="400px"</img> 
+    <img src="/screenshot/login.jpg" width="400px"</img> 
 </div>
 
 ## License
