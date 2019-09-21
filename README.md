@@ -26,7 +26,7 @@ Many appreciate for any comments, contributors, report issue
 And any star or fort are most motivation for me to update more new features
 
 ## Screenshot
-![Login](/screenshot/login.png)
+![Login](/screenshot/login.png width="200px")
 
 <div align="center">
     <img src="/screenshot/login.png" width="400px"</img> 
