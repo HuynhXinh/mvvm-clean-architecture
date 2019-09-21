@@ -1,0 +1,16 @@
+apply from: '../android-library.gradle'
+
+
+dependencies {
+    implementation project(':domain')
+
+    implementation deps.workermanger.workruntime
+    implementation deps.workermanger.workrrxjava
+
+    implementation deps.kotlin.stdlib
+    implementation deps.kotlin.ktx
+
+    implementation deps.timberkt
+
+    implementation deps.koin.core
+}

@@ -1,0 +1,18 @@
+apply from: '../../android-library.gradle'
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation project(':domain')
+
+    implementation deps.reactive.rxjava
+
+    implementation deps.kotlin.stdlib
+    implementation deps.kotlin.ktx
+
+    implementation deps.google.location
+
+    implementation deps.timberkt
+
+    implementation deps.koin.core
+}

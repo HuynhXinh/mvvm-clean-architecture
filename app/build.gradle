@@ -65,6 +65,8 @@ dependencies {
     implementation project(':local')
     implementation project(':google')
     implementation project(':location')
+    implementation project(':permission')
+    implementation project(':workermanager')
 
     implementation project(':splash')
     implementation project(':authentication')
