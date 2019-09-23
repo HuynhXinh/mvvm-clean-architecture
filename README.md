@@ -24,7 +24,7 @@ Need to create secret-keys.gradle file (contain key of Google sign and Facebook)
 
 ## Appreciate
 Many appreciate for any comments, contributions, report issues
-And any star or fort are most motivation for me to update more new features
+And any star or fork are most motivation for me to update more new features
 
 ## Screenshot
 
