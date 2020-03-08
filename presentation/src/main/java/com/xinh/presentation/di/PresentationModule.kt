@@ -17,8 +17,8 @@ val presentationModule = module {
     scope(named(SPLASH_SCOPE_NAME)) {
         scoped<SplashViewModel> {
             SplashViewModelImpl(
-                schedulerProvider = get(),
-                userManager = get()
+                    schedulerProvider = get(),
+                    userManager = get()
             )
         }
     }
@@ -26,9 +26,9 @@ val presentationModule = module {
     scope(named(AUTHENTICATION_SCOPE_NAME)) {
         scoped<AuthenticationViewModel> {
             AuthenticationViewModelImpl(
-                schedulerProvider = get(),
-                authenticationRepository = get(),
-                userManager = get()
+                    schedulerProvider = get(),
+                    userManager = get(),
+                    login = get()
             )
         }
     }
@@ -36,9 +36,9 @@ val presentationModule = module {
     scope(named(ACCOUNT_SCOPE_NAME)) {
         scoped<AccountViewModule> {
             AccountViewModuleImpl(
-                schedulerProvider = get(),
-                accountRepository = get(),
-                userManager = get()
+                    schedulerProvider = get(),
+                    userManager = get(),
+                    logout = get()
             )
         }
     }

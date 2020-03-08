@@ -48,7 +48,8 @@ class AuthenticationActivity : BaseSimpleActivity(),
     }
 
     override fun openRegister() {
-        TODO("Implement register screen")
+        navigator.gotoMain(this)
+        finish()
     }
 
     companion object {

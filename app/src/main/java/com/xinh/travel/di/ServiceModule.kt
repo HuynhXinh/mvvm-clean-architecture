@@ -1,6 +1,6 @@
 package com.xinh.travel.di
 
-import com.xinh.remote.service.AuthenticationService
+import com.xinh.data.repository.user.cloud.AuthenticationService
 import org.koin.dsl.module
 import retrofit2.Retrofit
 

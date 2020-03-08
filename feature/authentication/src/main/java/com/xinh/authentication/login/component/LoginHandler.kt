@@ -6,5 +6,5 @@ import android.widget.LinearLayout
 interface LoginHandler {
     fun init(context: Context, root: LinearLayout)
 
-    fun setOnLoginClickListener(listener: (com.xinh.domain.param.LoginParam) -> Unit)
+    fun setOnLoginClickListener(listener: (email: String, password: String) -> Unit)
 }

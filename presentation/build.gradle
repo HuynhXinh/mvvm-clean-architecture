@@ -26,6 +26,6 @@ dependencies {
     implementation deps.timberkt
 
     testImplementation deps.kotlin.koin_test
+    testImplementation deps.kotlin.mockito_kotlin
     testImplementation deps.arch_core.testing
-    testImplementation 'com.nhaarman:mockito-kotlin:1.5.0'
 }

@@ -1,12 +1,14 @@
 package com.xinh.domain.model
 
 data class User(
-    var firstName: String,
-    var lastName: String,
-    var token: String,
-    var userType: UserType = UserType.EMAIL
+        var firstName: String,
+        var lastName: String,
+        var token: String,
+        var userType: UserType = UserType.Email
 )
 
-enum class UserType {
-    EMAIL, GOOGLE, FACEBOOK
+sealed class UserType {
+    object Email : UserType()
+    object Facebook : UserType()
+    object Google : UserType()
 }

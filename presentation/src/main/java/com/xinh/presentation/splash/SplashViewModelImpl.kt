@@ -1,7 +1,7 @@
 package com.xinh.presentation.splash
 
+import com.xinh.domain.executor.SchedulerProvider
 import com.xinh.domain.manager.UserManager
-import com.xinh.presentation.rx.SchedulerProvider
 
 class SplashViewModelImpl(
     schedulerProvider: SchedulerProvider,

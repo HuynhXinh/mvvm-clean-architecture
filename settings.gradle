@@ -1,8 +1,6 @@
 include ':app',
         ':data',
         ':domain',
-        ':remote',
-        ':local',
         ':presentation',
         ':scopeinjection',
 

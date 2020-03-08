@@ -1,9 +1,13 @@
 apply from: '../android-library.gradle'
 
 dependencies {
+    api deps.network.gson
+    api deps.network.retrofit
+    api deps.network.retrofit_gson
+    api deps.network.rxadapter
+    api deps.network.okhttp_logging_interceptor
+
     implementation project(':domain')
-    implementation project(':remote')
-    implementation project(':local')
     implementation project(':google')
     implementation project(':facebook')
 
@@ -15,4 +19,8 @@ dependencies {
     implementation deps.kotlin.ktx
 
     implementation deps.koin.core
+
+    testImplementation deps.kotlin.koin_test
+    testImplementation deps.kotlin.mockito_kotlin
+    testImplementation deps.testing.mock_web_server
 }

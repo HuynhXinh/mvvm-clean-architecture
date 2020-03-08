@@ -1,44 +1,39 @@
 package com.xinh.presentation.authentication
 
+import com.nhaarman.mockitokotlin2.argumentCaptor
+import com.nhaarman.mockitokotlin2.mock
+import com.nhaarman.mockitokotlin2.verify
+import com.xinh.domain.exception.Failure
+import com.xinh.domain.functional.Either
+import com.xinh.domain.interactor.Login
 import com.xinh.domain.manager.UserManager
 import com.xinh.domain.model.User
-import com.xinh.domain.param.LoginParam
-import com.xinh.domain.repository.AuthenticationRepository
-import com.xinh.presentation.BaseViewModelTest
 import com.xinh.presentation.SingleLiveEvent
-import com.xinh.presentation.mock
-import io.reactivex.Observable
+import com.xinh.presentation.UnitTest
 import org.junit.Before
 import org.junit.Test
-import org.junit.runner.RunWith
-import org.mockito.ArgumentMatchers.anyString
-import org.mockito.BDDMockito
 import org.mockito.Mock
-import org.mockito.Mockito
-import org.mockito.junit.MockitoJUnitRunner
+import org.mockito.Mockito.mock
 
-@RunWith(MockitoJUnitRunner::class) // java kotlin
-class AuthenticationViewModelTest : BaseViewModelTest() {
+class AuthenticationViewModelTest : UnitTest() {
 
-    lateinit var authenticationViewModel: AuthenticationViewModel
+    private lateinit var authenticationViewModel: AuthenticationViewModel
 
     @Mock
-    lateinit var authenticationRepository: AuthenticationRepository
+    private lateinit var userManager: UserManager
 
     @Mock
-    lateinit var userManager: UserManager
+    private lateinit var login: Login
 
     private var onLoginSuccess: SingleLiveEvent<User> = mock()
     private var onLoginFail: SingleLiveEvent<Unit> = mock()
 
     @Before
-    override fun setUp() {
-//        super.setUp()
-
+    fun setUp() {
         authenticationViewModel = AuthenticationViewModelImpl(
-            testSchedulerProvider,
-            authenticationRepository,
-            userManager
+            schedulerProvider,
+            userManager,
+            login
         )
 
         authenticationViewModel.onLoginSuccess = onLoginSuccess
@@ -48,46 +43,33 @@ class AuthenticationViewModelTest : BaseViewModelTest() {
     @Test
     fun `login email fail`() {
         //
-        // Given
-        //
-        Mockito.`when`(authenticationRepository.login(anyString(), anyString()))
-            .thenAnswer {
-                Observable.error<Throwable> { Throwable() }
-            }
-
-        BDDMockito.given(authenticationRepository.login(anyString(), anyString()))
-            .willAnswer {
-                Observable.error<Throwable> { Throwable() }
-            }
-
-        //
         // When
         //
         authenticationViewModel.login(mockLoginEmailParam())
 
         //
+        // Given
+        //
+        val params = argumentCaptor<Login.Params>()
+        val onResult = argumentCaptor<(Either<Failure, User>) -> Unit>()
+        verify(login).invoke(params.capture(), onResult.capture())
+
+        onResult.firstValue.invoke(Either.Left(Failure.ServerError()))
+
+        //
         // Then
         //
-        Mockito.verify(onLoginFail).call()
-        Mockito.verifyNoMoreInteractions(userManager)
+        verify(onLoginFail).call()
+
     }
 
-    private fun mockLoginEmailParam(): LoginParam {
-        return LoginParam(email = "test@gmail.com", password = "123")
+    private fun mockLoginEmailParam(): Login.Params {
+        return Login.Params("xinh@gmail.com", "12345")
     }
 
     @Test
     fun `login email success`() {
-        val user = Mockito.mock(User::class.java)
-
-        //
-        // Given
-        //
-        BDDMockito.given(
-            authenticationRepository.login(anyString(), anyString())
-        ).willAnswer {
-            Observable.just(user)
-        }
+        val user = mock(User::class.java)
 
         //
         // When
@@ -95,10 +77,18 @@ class AuthenticationViewModelTest : BaseViewModelTest() {
         authenticationViewModel.login(mockLoginEmailParam())
 
         //
+        // Given
+        //
+        val params = argumentCaptor<Login.Params>()
+        val onResult = argumentCaptor<(Either<Failure, User>) -> Unit>()
+        verify(login).invoke(params.capture(), onResult.capture())
+        onResult.firstValue.invoke(Either.Right(user))
+
+        //
         // Then
         //
-        Mockito.verify(onLoginSuccess).value = user
-        Mockito.verify(userManager).saveUser(user)
+        verify(userManager).saveUser(user)
+        verify(onLoginSuccess).call()
     }
 
 }

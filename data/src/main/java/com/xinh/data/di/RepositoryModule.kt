@@ -1,9 +1,7 @@
 package com.xinh.data.di
 
-import com.xinh.data.repository.AccountRepositoryImpl
-import com.xinh.data.repository.AuthenticationRepositoryImpl
-import com.xinh.domain.repository.AccountRepository
-import com.xinh.domain.repository.AuthenticationRepository
+import com.xinh.data.repository.UserRepositoryImpl
+import com.xinh.domain.repository.UserRepository
 import com.xinh.facebook.service.FacebookService
 import com.xinh.facebook.service.FacebookServiceImpl
 import com.xinh.google.service.GoogleService
@@ -19,8 +17,8 @@ val repositoryModule = module {
         scoped<GoogleService> { GoogleServiceImpl(context = get()) }
         scoped<FacebookService> { FacebookServiceImpl(context = get(), gson = get()) }
 
-        scoped<AuthenticationRepository> {
-            AuthenticationRepositoryImpl(
+        scoped<UserRepository> {
+            UserRepositoryImpl(
                 authenticationService = get(),
                 googleService = get(),
                 facebookService = get()
@@ -32,11 +30,11 @@ val repositoryModule = module {
         scoped<GoogleService> { GoogleServiceImpl(context = get()) }
         scoped<FacebookService> { FacebookServiceImpl(context = get(), gson = get()) }
 
-        scoped<AccountRepository> {
-            AccountRepositoryImpl(
-                authenticationService = get(),
-                googleService = get(),
-                facebookService = get()
+        scoped<UserRepository> {
+            UserRepositoryImpl(
+                    authenticationService = get(),
+                    googleService = get(),
+                    facebookService = get()
             )
         }
     }

@@ -61,8 +61,6 @@ dependencies {
 
     implementation project(':domain')
     implementation project(':data')
-    implementation project(':remote')
-    implementation project(':local')
     implementation project(':google')
     implementation project(':location')
     implementation project(':permission')
@@ -72,8 +70,6 @@ dependencies {
     implementation project(':authentication')
     implementation project(':account')
 }
-
-//apply plugin: 'com.google.gms.google-services'
 
 androidExtensions {
     experimental = true
