@@ -1,10 +1,10 @@
 package com.xinh.travel
 
+import com.xinh.data.di.preferenceModule
 import com.xinh.data.di.repositoryModule
-import com.xinh.local.di.localModule
+import com.xinh.domain.di.useCaseModule
 import com.xinh.location.di.locationModule
 import com.xinh.presentation.di.presentationModule
-import com.xinh.remote.di.remoteModule
 import com.xinh.share.BaseApplication
 import com.xinh.travel.di.*
 import com.xinh.workermanager.di.workerManagerModule
@@ -28,12 +28,12 @@ class TravelApplication : BaseApplication() {
     private fun allModules(): List<Module> {
         return listOf(
             appModule,
+            useCaseModule,
             managerModule,
             navigatorModule,
             repositoryModule,
             serviceModule,
-            remoteModule,
-            localModule,
+            preferenceModule,
             networkModule,
             presentationModule,
             locationModule,

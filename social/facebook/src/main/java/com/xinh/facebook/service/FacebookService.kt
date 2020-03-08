@@ -7,7 +7,7 @@ import io.reactivex.Observable
 interface FacebookService {
     fun loginToGetAccessToken(): Observable<FacebookAccessToken>
 
-    fun loginToGetUser(): Observable<FacebookUser>
+    fun login(): Observable<FacebookUser>
 
     fun logout(): Observable<Boolean>
 }

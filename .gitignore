@@ -1,0 +1,62 @@
+*.apk
+
+# Gradle files
+.gradle/
+build/
+
+# Built application files
+/*/build/
+
+# Crashlytics configuations
+com_crashlytics_export_strings.xml
+
+# Local configuration file (sdk path, etc)
+local.properties
+secret-keys.gradle
+
+# Gradle generated files
+
+# Signing files
+.signing/
+
+# User-specific configurations
+.idea
+*.iml
+
+# OS-specific files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+/.gradle/
+/.idea/
+/build/
+
+
+### Android ###
+# Built application files
+*.ap_
+
+# Files for the ART/Dalvik VM
+*.dex
+
+# Java class files
+*.class
+
+# Generated files
+bin/
+gen/
+out/
+
+# Intellij
+.idea/libraries
+
+# External native build folder generated in Android Studio 2.2 and later
+.externalNativeBuild
+
+# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
+!gradle-wrapper.jar
+
+# Cache of project
+.gradletasknamecache

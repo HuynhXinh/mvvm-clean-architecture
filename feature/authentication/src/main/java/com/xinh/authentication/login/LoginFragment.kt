@@ -10,8 +10,8 @@ import com.xinh.authentication.login.component.LoginHandlerImpl
 import com.xinh.authentication.login.listener.OnLoginClickBackListener
 import com.xinh.authentication.login.listener.OnLoginSuccessListener
 import com.xinh.authentication.login.listener.OnOpenRegisterListener
-import com.xinh.domain.param.LoginParam
-import com.xinh.domain.param.LoginTypeParam
+import com.xinh.domain.interactor.Login
+import com.xinh.domain.model.UserType
 import com.xinh.koininjection.AUTHENTICATION_SCOPE_ID
 import com.xinh.koininjection.AUTHENTICATION_SCOPE_NAME
 import com.xinh.presentation.authentication.AuthenticationViewModel
@@ -27,10 +27,10 @@ import com.xinh.share.spanner.Spans.foreground
 class LoginFragment : BaseFragment<FragmentLoginBinding>() {
 
     private val authenticationViewModel =
-        getViewModelScope<AuthenticationViewModel>(
-            AUTHENTICATION_SCOPE_ID,
-            AUTHENTICATION_SCOPE_NAME
-        )
+            getViewModelScope<AuthenticationViewModel>(
+                    AUTHENTICATION_SCOPE_ID,
+                    AUTHENTICATION_SCOPE_NAME
+            )
 
     private var onLoginClickBackListener: OnLoginClickBackListener? = null
     private var onLoginSuccessListener: OnLoginSuccessListener? = null
@@ -57,17 +57,22 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
             LoginHandlerImpl().run {
                 init(requireContext(), llContent)
 
-                setOnLoginClickListener {
-                    authenticationViewModel?.login(it)
+                setOnLoginClickListener { email, password ->
+                    authenticationViewModel?.login(
+                            Login.Params(
+                                    email,
+                                    password
+                            )
+                    )
                 }
             }
 
             onClickLoginFacebookListener = View.OnClickListener {
-                authenticationViewModel?.login(LoginParam(loginTypeParam = LoginTypeParam.FACEBOOK))
+                authenticationViewModel?.login(Login.Params(type = UserType.Facebook))
             }
 
             onClickLoginGoogleListener = View.OnClickListener {
-                authenticationViewModel?.login(LoginParam(loginTypeParam = LoginTypeParam.GOOGLE))
+                authenticationViewModel?.login(Login.Params(type = UserType.Google))
             }
 
             initTextNoAccountAndSignUp(tvNoAccountAndSignUp)
@@ -75,17 +80,21 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
     }
 
     private fun initTextNoAccountAndSignUp(tvNoAccountAndSignUp: AppCompatTextView) {
+        tvNoAccountAndSignUp.setOnClickListener {
+            onOpenRegisterListener?.openRegister()
+        }
+
         tvNoAccountAndSignUp.text = Spanner()
-            .append(getString(R.string.txt_dont_have_an_account))
-            .append(" ")
-            .append(
-                getString(R.string.txt_sign_up),
-                bold(),
-                foreground(requireContext().getCompatColor(R.color.blue)),
-                click(View.OnClickListener {
-                    onOpenRegisterListener?.openRegister()
-                })
-            )
+                .append(getString(R.string.txt_dont_have_an_account))
+                .append(" ")
+                .append(
+                        getString(R.string.txt_sign_up),
+                        bold(),
+                        foreground(requireContext().getCompatColor(R.color.blue)),
+                        click(View.OnClickListener {
+                            onOpenRegisterListener?.openRegister()
+                        })
+                )
     }
 
     override fun intiObserveViewModel() {

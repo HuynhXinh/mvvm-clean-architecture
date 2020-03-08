@@ -2,7 +2,6 @@ package com.xinh.authentication.login.component
 
 import android.content.Context
 import android.widget.LinearLayout
-import com.xinh.domain.param.LoginParam
 import com.xinh.share.widget.buttonview.ButtonComponent
 import com.xinh.share.widget.common.OnValidatingListener
 import com.xinh.share.widget.common.ValidationComponent
@@ -14,7 +13,7 @@ class LoginHandlerImpl : LoginHandler {
 
     private var components: List<ViewComponent>? = null
 
-    private var listener: ((LoginParam) -> Unit)? = null
+    private var listener: ((email: String, password: String) -> Unit)? = null
 
     override fun init(context: Context, root: LinearLayout) {
         components = LoginComponentProvider(context).getComponents()
@@ -44,16 +43,9 @@ class LoginHandlerImpl : LoginHandler {
     private fun initBtnSignIn() {
         getBtnSignInComponent()?.run {
             setOnClickListener {
-                listener?.invoke(getLoginParam())
+                listener?.invoke(getEmail()!!, getPassword()!!)
             }
         }
-    }
-
-    private fun getLoginParam(): LoginParam {
-        return LoginParam(
-            email = getEmail(),
-            password = getPassword()
-        )
     }
 
     private fun getPassword(): String? {
@@ -68,7 +60,7 @@ class LoginHandlerImpl : LoginHandler {
         return components?.filterIsInstance<ButtonComponent>()?.firstOrNull()
     }
 
-    override fun setOnLoginClickListener(listener: (LoginParam) -> Unit) {
+    override fun setOnLoginClickListener(listener: (email: String, password: String) -> Unit) {
         this.listener = listener
     }
 }

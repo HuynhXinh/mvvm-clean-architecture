@@ -1,9 +1,9 @@
 package com.xinh.data.manager
 
 import com.google.gson.Gson
+import com.xinh.data.repository.user.disk.UserPreference
 import com.xinh.domain.manager.UserManager
 import com.xinh.domain.model.User
-import com.xinh.local.authentication.UserPreference
 
 class UserManagerImpl(
     private val userPreference: UserPreference,

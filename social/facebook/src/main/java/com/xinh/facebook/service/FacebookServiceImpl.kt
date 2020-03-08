@@ -22,7 +22,7 @@ class FacebookServiceImpl(
             .map { FacebookAccessToken(it.token, it.userId) }
     }
 
-    override fun loginToGetUser(): Observable<FacebookUser> {
+    override fun login(): Observable<FacebookUser> {
         return Observable.create(FacebookLoginSubscribe(context))
             .flatMap {
                 getUser(it)

@@ -5,4 +5,9 @@ dependencies {
 
     implementation deps.kotlin.stdlib
     implementation deps.kotlin.ktx
+
+    implementation deps.koin.core
+
+    testImplementation deps.kotlin.koin_test
+    testImplementation deps.kotlin.mockito_kotlin
 }
