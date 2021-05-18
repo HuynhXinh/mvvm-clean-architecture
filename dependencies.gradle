@@ -215,7 +215,7 @@ ext.DEV_API_URL = "\"https://dev-base-url/\""
 
 ext.PRO_API_URL = "\"https://pro-base-url/\""
 
-ext.MAP_API_KEY = "\"AIzaSyAx4-KdkzohjgXZjeL1iqwmoRCkRHZJwo8\""
+ext.MAP_API_KEY = ""
 
 ext.GEOCODE_API_URL = "\"https://maps.googleapis.com/maps/api/geocode/json\""
 ext.PLACE_AUTOCOMPLETE_API_URL = "\"https://maps.googleapis.com/maps/api/place/autocomplete/json\""
